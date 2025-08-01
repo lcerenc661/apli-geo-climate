@@ -95,8 +95,9 @@ Puntos de mejora:
 -
 
 * Se implementaron test cases para el caso de uso de creación de temperature records y el cálculo de anomalías pero es ideal mínimamente implementarlos en todos los uses cases
-* La implementación de los módulos de usuario y auth se realizaron de manera superficial, sin abordar en detalles o estructura de carpetas bien definidas debido al límite de tiempo. **Lo ideal sería darle mas importancia a estos modulos, también añadir una conexión entre los registros y usuarios, evidenciando quien hizo cada registro**
-* Implementar un sistema robusto de logs, que permitan trackear la actividad de nuestra aplicación, abriendo puertas a analitica en el futuro
+* La implementación de los módulos de usuario y auth se realizaron de manera superficial, sin abordar en detalles o estructura de carpetas bien definidas debido al límite de tiempo. **Lo ideal sería darle mas importancia a estos modulos, también añadir una conexión entre los registros y usuarios, evidenciando quien hizo cada registro. Tambien implementar un sistema the autenticación y autorización basada en roles, differnciando acceso de lectura y escritura en los difentes endpoints**
+* Implementar un sistema robusto de logs, que permitan trackear la actividad de nuestra aplicación, abriendo puertas a analítica en el futuro.
+* Implementar swagger para documentación automatica de la app.
 * Por tiempos, aún queda una clave hardcodeada en la aplicación (JWT_SECRET)
 
 Gracias, por leer hasta el final. Fue muy interesante realizar este ejercicio.
