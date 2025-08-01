@@ -16,7 +16,7 @@ export class CreateTemperatureRecordUseCase {
     request: CreateTemperatureRecordDto,
   ): Promise<CreateTemperatureRecordResponseDto> {
     const temperatureRecord = TemperatureRecord.create(
-      request.zone,
+      request.zoneId,
       request.timestamp,
       request.temperature,
     );

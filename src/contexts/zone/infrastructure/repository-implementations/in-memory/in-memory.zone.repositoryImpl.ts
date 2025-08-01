@@ -2,14 +2,16 @@ import { TemperatureRecord } from 'src/contexts/temperature-record/domain/entiti
 import { ZoneTemperatureSummary } from '../../../domain/dtos/zone-temperature-summary.dto';
 import { ZoneRepository } from '../../../domain/repositories/zone.repository';
 import { Zone } from 'src/contexts/zone/domain/entities/zone.entity';
-import { InMemoryTemperatureRecordRepository } from 'src/contexts/temperature-record/infrastructure/repository-implementations/in-memory/in-memory.temperature-record.repositoryImpl';
 import { Injectable } from '@nestjs/common';
 import { EntityNotFoundError } from 'src/contexts/shared/error/entity-errors';
+import { GetTemperatureAnomaliesByZoneIdUseCase } from 'src/contexts/temperature-record/application/use-cases/get-temperature-anomalies-by-zone-id.use-case';
+import { GetTemperatureSummaryByZoneIdUseCase } from 'src/contexts/temperature-record/application/use-cases/get-temperature-summary-by-zone-id.use-case';
 
 @Injectable()
 export class InMemoryZoneRepository extends ZoneRepository {
   constructor(
-    private readonly temperatureRepository: InMemoryTemperatureRecordRepository,
+    private readonly getTemperatureAnomaliesByZoneIdUseCase: GetTemperatureAnomaliesByZoneIdUseCase,
+    private readonly getTemperatureSummaryByZoneIdUseCase: GetTemperatureSummaryByZoneIdUseCase,
   ) {
     super();
   }
@@ -44,7 +46,7 @@ export class InMemoryZoneRepository extends ZoneRepository {
     }
 
     const summary: Omit<ZoneTemperatureSummary, 'zone'> =
-      await this.temperatureRepository.getTemperatureSummaryByZoneId(zoneId);
+      await this.getTemperatureSummaryByZoneIdUseCase.execute(zoneId);
 
     return {
       zone: zoneId,
@@ -58,7 +60,7 @@ export class InMemoryZoneRepository extends ZoneRepository {
       throw new EntityNotFoundError('Zone', zoneId, 'Zone not found');
     }
     const anomalies =
-      await this.temperatureRepository.getAnomaliesByZoneId(zoneId);
+      await this.getTemperatureAnomaliesByZoneIdUseCase.execute(zoneId);
     return anomalies;
   }
 }
