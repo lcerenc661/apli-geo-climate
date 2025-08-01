@@ -21,17 +21,17 @@ Con eso concluye la configuración de la aplicación.
 Para correr las pruebas:
 
 ```python
-{
+
   "npm run test"
-}
+
 ```
 
 Para correr la app en el pueto 3000:
 
 ```python
-{
+
   "npm run start"
-}
+
 ```
 
 **Tener en cuenta que para consumir la app se necesita el JWT, obten el hacer login en:**
