@@ -4,5 +4,4 @@ export interface ZoneTemperatureSummary {
   minTemperature: number;
   maxTemperature: number;
   recordCount: number;
-  lastUpdated: Date;
 }

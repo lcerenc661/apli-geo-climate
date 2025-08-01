@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { InMemoryTemperatureRecordRepository } from './infrastructure/in-memory/repositoriesImpl/in-memory.temperature-record.repositoryImpl';
+import { InMemoryTemperatureRecordRepository } from './infrastructure/repository-implementations/in-memory/in-memory.temperature-record.repositoryImpl';
 
 @Module({
   providers: [InMemoryTemperatureRecordRepository],

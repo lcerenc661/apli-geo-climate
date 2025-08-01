@@ -4,5 +4,5 @@ import { ZoneTemperatureSummary } from '../dtos/zone-temperature-summary.dto';
 export abstract class ZoneRepository {
   abstract zoneExists(zoneId: string): Promise<boolean>;
   abstract getSummary(zoneId: string): Promise<ZoneTemperatureSummary>;
-  abstract getAnomalies(zoneId: string): Promise<TemperatureRecord[]>;
+  abstract getZoneAnomalies(zoneId: string): Promise<TemperatureRecord[][]>;
 }

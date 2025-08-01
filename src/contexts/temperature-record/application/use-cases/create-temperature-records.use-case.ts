@@ -4,12 +4,12 @@ import {
   CreateTemperatureRecordDto,
   CreateTemperatureRecordResponseDto,
 } from '../dtos/temperature-records.dto';
-import { InMemoryTemperatureRecordRepository } from '../../infrastructure/in-memory/repositoriesImpl/in-memory.temperature-record.repositoryImpl';
+import { TemperatureRecordRepository } from '../../domain/repostitories/temperature-record.repository';
 
 @Injectable()
 export class CreateTemperatureRecordUseCase {
   constructor(
-    private readonly temperatureRepository: InMemoryTemperatureRecordRepository,
+    private readonly temperatureRepository: TemperatureRecordRepository,
   ) {}
 
   async execute(
@@ -26,7 +26,7 @@ export class CreateTemperatureRecordUseCase {
 
     return new CreateTemperatureRecordResponseDto(
       savedRecord.id,
-      savedRecord.zone,
+      savedRecord.zoneId,
       savedRecord.timestamp.toISOString(),
       savedRecord.temperature,
       savedRecord.createdAt.toISOString(),
