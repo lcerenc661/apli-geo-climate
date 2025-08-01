@@ -1,3 +1,7 @@
 # JWT Config:
+
 JWT_SECRET=/XWpK|&`(PzkTT>&G\/B>s/O>B>gJCzebWz
+
+# x-api-key Config:
+
 API_KEY=papaya-14
