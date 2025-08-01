@@ -1,23 +1,23 @@
 import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { simulateAsync } from 'src/contexts/shared/utils/utils';
 import { UsersService } from 'src/contexts/users/users.service';
 
 @Injectable()
 export class AuthService {
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private jwtService: JwtService,
+  ) {}
 
-  async validateUser(
-    username: string,
-    pass: string,
-  ): Promise<{ userId: number; username: string } | null> {
-    const user = await this.usersService.findOne(username);
-
-    if (user && user.password === pass) {
-      const result = { ...user };
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { password: _, ...safeUser } = user;
-      return result as { userId: number; username: string };
-    }
-
-    return null;
+  async login(user: {
+    userId: number;
+    username: string;
+  }): Promise<{ access_token: string }> {
+    await simulateAsync();
+    const payload = { username: user.username, userId: user.userId };
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
   }
 }
