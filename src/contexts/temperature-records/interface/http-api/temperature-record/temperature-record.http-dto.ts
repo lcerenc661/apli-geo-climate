@@ -11,5 +11,5 @@ export class CreateTemperatureRecordHttpDto {
 
   @IsNotEmpty()
   @IsISO8601()
-  timestamp!: string;
+  timestamp!: Date;
 }

@@ -13,6 +13,6 @@ export interface TemperatureRecordsByZoneInterface {
 
 export interface CreateTemperatureRecordInterface {
   zoneId: string;
-  timestamp: string;
+  timestamp: Date;
   temperature: number;
 }

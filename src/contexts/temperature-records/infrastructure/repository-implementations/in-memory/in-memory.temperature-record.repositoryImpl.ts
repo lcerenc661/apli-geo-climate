@@ -10,7 +10,7 @@ import {
   calculateAverageTemperature,
   calculateMaxTemperature,
   calculateMinTemperature,
-} from './in-memomry.temperature-record.utils';
+} from './in-memory.temperature-record.utils';
 import { ZoneTemperatureSummaryInterface } from 'src/contexts/zones/domain/interfaces/zone-temperature-summary.dto';
 import {
   formatDateTime,
