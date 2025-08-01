@@ -34,7 +34,7 @@ Para correr la app en el pueto 3000:
 
 ```
 
-**Tener en cuenta que para consumir la app se necesita el JWT, obten el hacer login en:**
+**Tener en cuenta que para consumir la app se necesita el JWT, obten el token al hacer login en:**
 
 ```python
 localhost:3000/auth/login
