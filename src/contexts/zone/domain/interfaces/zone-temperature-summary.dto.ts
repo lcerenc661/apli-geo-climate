@@ -1,4 +1,4 @@
-export interface ZoneTemperatureSummary {
+export interface ZoneTemperatureSummaryInterface {
   zone: string;
   averageTemperature: number;
   minTemperature: number;

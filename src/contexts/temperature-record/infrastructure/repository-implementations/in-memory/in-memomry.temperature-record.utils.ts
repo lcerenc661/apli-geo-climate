@@ -5,7 +5,7 @@ export function calculateAverageTemperature(
 ): number {
   if (records.length === 0) return 0;
   const sum = records.reduce((acc, r) => acc + r.temperature, 0);
-  return sum / records.length;
+  return parseFloat((sum / records.length).toFixed(2));
 }
 
 export function calculateMinTemperature(records: TemperatureRecord[]): number {

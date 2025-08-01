@@ -1,7 +1,7 @@
 export class CreateTemperatureRecordDto {
   constructor(
-    public readonly zoneId: string,
-    public readonly timestamp: Date,
+    public readonly zone: string,
+    public readonly timestamp: string,
     public readonly temperature: number,
   ) {}
 }
@@ -10,8 +10,8 @@ export class CreateTemperatureRecordResponseDto {
   constructor(
     public readonly id: string,
     public readonly zone: string,
-    public readonly timestamp: string,
+    public readonly timestamp: Date,
     public readonly temperature: number,
-    public readonly createdAt: string,
+    public readonly createdAt: Date,
   ) {}
 }

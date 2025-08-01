@@ -3,7 +3,7 @@ import { IsISO8601, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 export class CreateTemperatureRecordHttpDto {
   @IsNotEmpty()
   @IsString()
-  zoneId: string;
+  zone: string;
 
   @IsNotEmpty()
   @IsNumber()
@@ -11,5 +11,5 @@ export class CreateTemperatureRecordHttpDto {
 
   @IsNotEmpty()
   @IsISO8601()
-  timestamp!: Date;
+  timestamp!: string;
 }

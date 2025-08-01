@@ -1,5 +1,5 @@
 import { TemperatureRecord } from 'src/contexts/temperature-record/domain/entities/temperature-record.entity';
-import { ZoneTemperatureSummary } from '../../../domain/dtos/zone-temperature-summary.dto';
+import { ZoneTemperatureSummaryInterface } from '../../../domain/interfaces/zone-temperature-summary.dto';
 import { ZoneRepository } from '../../../domain/repositories/zone.repository';
 import { Zone } from 'src/contexts/zone/domain/entities/zone.entity';
 import { Injectable } from '@nestjs/common';
@@ -39,13 +39,13 @@ export class InMemoryZoneRepository extends ZoneRepository {
     });
   }
 
-  async getSummary(zoneId: string): Promise<ZoneTemperatureSummary> {
+  async getSummary(zoneId: string): Promise<ZoneTemperatureSummaryInterface> {
     const zoneExists = await this.zoneExists(zoneId);
     if (!zoneExists) {
       throw new EntityNotFoundError('Zone', zoneId, 'Zone not found');
     }
 
-    const summary: Omit<ZoneTemperatureSummary, 'zone'> =
+    const summary: Omit<ZoneTemperatureSummaryInterface, 'zone'> =
       await this.getTemperatureSummaryByZoneIdUseCase.execute(zoneId);
 
     return {

@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { TemperatureRecord } from '../../domain/entities/temperature-record.entity';
 import {
   CreateTemperatureRecordDto,
   CreateTemperatureRecordResponseDto,
@@ -15,21 +14,19 @@ export class CreateTemperatureRecordUseCase {
   async execute(
     request: CreateTemperatureRecordDto,
   ): Promise<CreateTemperatureRecordResponseDto> {
-    const temperatureRecord = TemperatureRecord.create(
-      request.zoneId,
-      request.timestamp,
-      request.temperature,
-    );
-
-    const savedRecord =
-      await this.temperatureRepository.save(temperatureRecord);
+    const parsedRequest = {
+      zoneId: request.zone,
+      timestamp: request.timestamp,
+      temperature: request.temperature,
+    };
+    const savedRecord = await this.temperatureRepository.save(parsedRequest);
 
     return new CreateTemperatureRecordResponseDto(
       savedRecord.id,
       savedRecord.zoneId,
-      savedRecord.timestamp.toISOString(),
+      savedRecord.timestamp,
       savedRecord.temperature,
-      savedRecord.createdAt.toISOString(),
+      savedRecord.createdAt,
     );
   }
 }

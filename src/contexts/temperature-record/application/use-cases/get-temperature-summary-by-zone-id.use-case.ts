@@ -1,4 +1,4 @@
-import { ZoneTemperatureSummary } from 'src/contexts/zone/domain/dtos/zone-temperature-summary.dto';
+import { ZoneTemperatureSummaryInterface } from 'src/contexts/zone/domain/interfaces/zone-temperature-summary.dto';
 import { TemperatureRecordRepository } from '../../domain/repostitories/temperature-record.repository';
 import { Injectable } from '@nestjs/common';
 
@@ -8,7 +8,9 @@ export class GetTemperatureSummaryByZoneIdUseCase {
     private readonly temperatureRecordRepository: TemperatureRecordRepository,
   ) {}
 
-  async execute(zoneId: string): Promise<Omit<ZoneTemperatureSummary, 'zone'>> {
+  async execute(
+    zoneId: string,
+  ): Promise<Omit<ZoneTemperatureSummaryInterface, 'zone'>> {
     const summary =
       await this.temperatureRecordRepository.getTemperatureSummaryByZoneId(
         zoneId,

@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { InvalidEntityFieldError } from 'src/contexts/shared/error/entity-errors';
 
 export class TemperatureRecord {
@@ -21,21 +20,5 @@ export class TemperatureRecord {
         'Zone is required and cannot be empty',
       );
     }
-  }
-
-  static create(
-    zone: string,
-    timestamp: Date,
-    temperature: number,
-  ): TemperatureRecord {
-    const generatedId = uuidv4();
-    const createdAt = new Date();
-    return new TemperatureRecord(
-      generatedId,
-      zone,
-      timestamp,
-      temperature,
-      createdAt,
-    );
   }
 }

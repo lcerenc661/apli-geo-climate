@@ -14,7 +14,7 @@ export class TemperatureRecordController {
     @Body() createTemperatureRecordHttpDto: CreateTemperatureRecordHttpDto,
   ): Promise<CreateTemperatureRecordResponseDto> {
     return await this.createTemperatureRecordUseCase.execute({
-      zoneId: createTemperatureRecordHttpDto.zoneId,
+      zone: createTemperatureRecordHttpDto.zone,
       timestamp: createTemperatureRecordHttpDto.timestamp,
       temperature: createTemperatureRecordHttpDto.temperature,
     });
