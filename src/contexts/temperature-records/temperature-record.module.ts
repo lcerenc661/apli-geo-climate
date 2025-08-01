@@ -6,6 +6,7 @@ import { TemperatureRecordRepository } from './domain/repostitories/temperature-
 import { GetTemperatureSummaryByZoneIdUseCase } from './application/use-cases/get-temperature-summary-by-zone-id.use-case';
 import { GetTemperatureAnomaliesByZoneIdUseCase } from './application/use-cases/get-temperature-anomalies-by-zone-id.use-case';
 import { ZoneModule } from '../zones/zone.module';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [forwardRef(() => ZoneModule)],
@@ -19,6 +20,7 @@ import { ZoneModule } from '../zones/zone.module';
       provide: TemperatureRecordRepository,
       useExisting: InMemoryTemperatureRecordRepository,
     },
+    ConfigService,
   ],
   exports: [
     GetTemperatureSummaryByZoneIdUseCase,

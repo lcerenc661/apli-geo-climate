@@ -6,6 +6,7 @@ import { GetZoneAnomaliesUseCase } from './application/use-cases/get-zone-temper
 import { GetZoneSummaryUseCase } from './application/use-cases/get-zone-temperature-records-summary.use-case';
 import { TemperatureRecordModule } from '../temperature-records/temperature-record.module';
 import { ValidateZoneUseCase } from './application/use-cases/validate-zone.use-case';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [TemperatureRecordModule],
@@ -19,6 +20,7 @@ import { ValidateZoneUseCase } from './application/use-cases/validate-zone.use-c
       provide: ZoneRepository,
       useExisting: InMemoryZoneRepository,
     },
+    ConfigService,
   ],
   exports: [
     GetZoneAnomaliesUseCase,

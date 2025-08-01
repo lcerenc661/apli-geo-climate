@@ -3,7 +3,7 @@ import { GetZoneAnomaliesUseCase } from 'src/contexts/zones/application/use-case
 import { GetZoneSummaryUseCase } from 'src/contexts/zones/application/use-cases/get-zone-temperature-records-summary.use-case';
 import { ZoneTemperatureSummaryInterface } from 'src/contexts/zones/domain/interfaces/zone-temperature-summary.dto';
 import { TemperatureRecord } from 'src/contexts/temperature-records/domain/entities/temperature-record.entity';
-import { JwtAuthGuard } from 'src/contexts/auth/guards/jwt-auth.guards';
+import { JwtAuthGuard } from 'src/contexts/auth/interface/guards/jwt-auth.guards';
 
 @Controller('zones')
 export class ZoneController {
