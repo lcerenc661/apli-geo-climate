@@ -5,6 +5,7 @@ import { ZoneRepository } from './domain/repositories/zone.repository';
 import { GetZoneAnomaliesUseCase } from './application/use-cases/get-zone-temperature-records-anomalies.use-case';
 import { GetZoneSummaryUseCase } from './application/use-cases/get-zone-temperature-records-summary.use-case';
 import { TemperatureRecordModule } from '../temperature-records/temperature-record.module';
+import { ValidateZoneUseCase } from './application/use-cases/validate-zone.use-case';
 
 @Module({
   imports: [TemperatureRecordModule],
@@ -13,11 +14,16 @@ import { TemperatureRecordModule } from '../temperature-records/temperature-reco
     InMemoryZoneRepository,
     GetZoneAnomaliesUseCase,
     GetZoneSummaryUseCase,
+    ValidateZoneUseCase,
     {
       provide: ZoneRepository,
       useExisting: InMemoryZoneRepository,
     },
   ],
-  exports: [GetZoneAnomaliesUseCase, GetZoneSummaryUseCase],
+  exports: [
+    GetZoneAnomaliesUseCase,
+    GetZoneSummaryUseCase,
+    ValidateZoneUseCase,
+  ],
 })
 export class ZoneModule {}

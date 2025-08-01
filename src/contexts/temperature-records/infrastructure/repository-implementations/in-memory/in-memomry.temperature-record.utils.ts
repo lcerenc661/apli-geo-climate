@@ -55,7 +55,6 @@ export async function calculateAnomalies(
 
   await new Promise((resolve) => {
     setTimeout(() => {
-      console.log(`Anomalies found: ${anomalies.length}`);
       resolve(undefined);
     }, 200);
   });

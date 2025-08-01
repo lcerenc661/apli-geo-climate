@@ -28,12 +28,10 @@ export class InMemoryZoneRepository extends ZoneRepository {
       setTimeout(() => {
         for (const zone of this.zones) {
           if (zone.id === zoneId) {
-            console.log(`Zone exists: ${zoneId}`);
             resolve(true);
             return;
           }
         }
-        console.log(`Zone does not exist: ${zoneId}`);
         resolve(false);
       }, 200);
     });

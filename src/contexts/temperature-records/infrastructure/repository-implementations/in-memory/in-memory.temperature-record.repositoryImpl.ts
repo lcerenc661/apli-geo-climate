@@ -180,7 +180,6 @@ export class InMemoryTemperatureRecordRepository extends TemperatureRecordReposi
   ): Promise<TemperatureRecordsByZoneInterface> {
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log(`Finding records for zone: ${request.zoneId}`);
         const filteredRecords = this.records.filter(
           (record) => record.zoneId === request.zoneId,
         );
