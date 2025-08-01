@@ -28,3 +28,11 @@ export function formatDateTime(date: string | Date): Date {
 
   return response;
 }
+
+export const simulateAsync = (delay: number = 1000): Promise<boolean> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, delay);
+  });
+};
